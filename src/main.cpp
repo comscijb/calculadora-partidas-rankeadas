@@ -37,7 +37,7 @@ int main(){
     }
     playerVictoryCount = countVictories(playerMatchesResults);
     playerQualification = qualifyPlayer(playerVictoryCount);
-    cout << "O Heroi tem de saldo de " << playerVictoryCount << " vitorias e esta no nivel " << playerQualification;
+    cout << "O Heroi tem o saldo de " << playerVictoryCount << " vitorias e esta no nivel " << playerQualification;
 
     return 1;
 }
@@ -84,7 +84,7 @@ void addVictories(vector <string> playerMatchesResults[], int victories){
     for (iterator = 0; iterator <= victories; iterator++){
         playerMatchesResults->push_back("V");
     }
-    cout << victories <<"\n vitorias adcionadas com sucesso!";
+    cout << victories <<"\nVitorias adcionadas com sucesso!";
 }
 
 void addDefeats(vector <string> playerMatchesResults[], int defeats){
@@ -92,6 +92,6 @@ void addDefeats(vector <string> playerMatchesResults[], int defeats){
     for (iterator = 0; iterator <= defeats; iterator++){
         playerMatchesResults->push_back("D");
     }
-    cout << defeats <<"\n derrotas adicionadas com sucesso!";
+    cout << defeats <<"\nDerrotas adicionadas com sucesso!";
 }
 

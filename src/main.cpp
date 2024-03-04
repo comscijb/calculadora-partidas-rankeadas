@@ -1,6 +1,5 @@
 #include<iostream>
 #include<vector>
-#include<string>
 using namespace std;
 
 int countVictories(vector <string> playerMatchesResults[]);
@@ -35,26 +34,29 @@ int main(){
         } else{
             cout << "\nOpcao invalida! Por favor digite novamente: ";
         }
-        cout << "Opção invalida! Por favor digite novamente: ";
     }
     playerVictoryCount = countVictories(playerMatchesResults);
     playerQualification = qualifyPlayer(playerVictoryCount);
-    cout << "O Heroi tem de saldo de " << playerVictoryCount << " vitorias e esta no nivel de " << playerQualification;
+    cout << "O Heroi tem de saldo de " << playerVictoryCount << " vitorias e esta no nivel " << playerQualification;
 
     return 1;
 }
 
 int countVictories(vector <string> playerMatchesResults[]){
     int victoryCount = 0;
-    int arraySize = playerMatchesResults->size();
-    for (int i = 0; i == arraySize; i++){
-        if (playerMatchesResults[i] == "V"){
-            victoryCount++;
-        }else if (playerMatchesResults[i] == "D"){
-            victoryCount--;
+    int iterator = 0;
+    for (iterator = 0; iterator < playerMatchesResults->size(); iterator++) {
+        vector<string> matches = playerMatchesResults[iterator];
+        int iterator2 = 0;
+        for (iterator2 = 0; iterator2 < matches.size(); iterator2++) {
+            if (matches[iterator2] == "V"){
+                victoryCount++;
+            }else if (matches[iterator2] == "D"){
+                victoryCount--;
+            }
         }
-    return victoryCount;
     }
+    return victoryCount;
 }
 
 string qualifyPlayer(int playerVictoryCount){
@@ -78,15 +80,18 @@ string qualifyPlayer(int playerVictoryCount){
 }
 
 void addVictories(vector <string> playerMatchesResults[], int victories){
-    for (size_t i = 0; i <= victories; i++){
+    int iterator = 0;
+    for (iterator = 0; iterator <= victories; iterator++){
         playerMatchesResults->push_back("V");
     }
     cout << victories <<"\n vitorias adcionadas com sucesso!";
 }
 
 void addDefeats(vector <string> playerMatchesResults[], int defeats){
-    for (size_t i = 0; i <= defeats; i++){
+    int iterator = 0;
+    for (iterator = 0; iterator <= defeats; iterator++){
         playerMatchesResults->push_back("D");
     }
     cout << defeats <<"\n derrotas adicionadas com sucesso!";
 }
+
